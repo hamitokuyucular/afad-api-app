@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deprem Görselleştirme Uygulaması</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@latest/ol.css">
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header class="bg-dark text-white text-center py-2">
+        <h5>Deprem Görselleştirme Uygulaması</h5>
+    </header>
+
+    <div class="d-flex" id="main-container">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="bg-light border-end p-3">
+            <h6>Filtreleme</h6>
+
+            <form id="filterForm">
+
+                <div class="mb-2">
+                    <label class="form-label">Tarih Aralığı</label>
+                    <input type="date" class="form-control mb-1" id="start" value="2023-02-05" />
+                    <input type="date" class="form-control" id="end" value="2023-02-07" />
+                </div>
+
+                <div class="mb-2">
+                    <label class="form-label">Büyüklük Aralığı</label>
+                    <input type="number" step="0.1" class="form-control mb-1" id="minmag" placeholder="Min" />
+                    <input type="number" step="0.1" class="form-control" id="maxmag" placeholder="Max" />
+                </div>
+
+                <div class="mb-2">
+                    <label class="form-label">Derinlik Aralığı (km)</label>
+                    <input type="number" class="form-control mb-1" id="mindepth" placeholder="Min" />
+                    <input type="number" class="form-control" id="maxdepth" placeholder="Max" />
+                </div>
+
+                <div class="mb-2">
+                    <label class="form-label">Koordinat Aralığı</label>
+                    <input type="number" step="0.001" class="form-control mb-1" id="minlat" placeholder="Min Lat" />
+                    <input type="number" step="0.001" class="form-control mb-1" id="maxlat" placeholder="Max Lat" />
+                    <input type="number" step="0.001" class="form-control mb-1" id="minlon" placeholder="Min Lon" />
+                    <input type="number" step="0.001" class="form-control mb-1" id="maxlon" placeholder="Max Lon" />
+                    <button type="button" id="drawBoxBtn" class="btn btn-sm btn-outline-secondary mt-2 mb-2">Haritada Alan
+                        Seç</button>
+                </div>
+
+                <div class="mb-2">
+                    <label class="form-label">Limit:</label>
+                    <input type="number" id="limit" class="form-control mb-1" value="400">
+                </div>
+
+                <button id="fetchBtn" type="button" class="btn btn-secondary w-100 mt-2">Filtreyi Uygula</button>
+            </form>
+
+            <hr />
+
+            <div id="stats">
+
+                <h6>Deprem Sayısı: <span id="eqCount"></span></h6>
+                <h6>En Büyük Deprem:</h6>
+                <div class="text-center">
+                    <p><span id="maxEq"></span></p>
+                    <p>Tarih: <span id="maxEqDate"></span></p>
+                    <p>Büyüklük: <span id="maxEqMag"></span></p>
+                    <p>Derinlik: <span id="maxEqDep"></span></p>
+                </div>
+            </div>
+
+            <hr />
+
+            <pre id="output">Henüz veri yok...</pre>
+        </aside>
+
+        <!-- Map Section -->
+        <main id="map-container" class="flex-grow-1 position-relative">
+            <div id="map" class="w-100 h-100"></div>
+            <div id="popup" class="popup">
+                <button id="popup-closer" class="btn popup-closer">×</button>
+                <div id="popup-content"></div>
+        </main>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-2">
+        Kaynak: AFAD API
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ol@latest/dist/ol.js"></script>
+    <script type="module" src="map.js"></script>
+    <script type="module" src="filtre.js"></script>
+</body>
+
+</html>

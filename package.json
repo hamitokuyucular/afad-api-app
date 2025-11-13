@@ -1,0 +1,18 @@
+{
+  "name": "afad-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hamit Okuyucular",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.13.2",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "ol": "^10.7.0",
+    "path": "^0.12.7"
+  }
+}
