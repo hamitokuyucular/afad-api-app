@@ -35,20 +35,21 @@ footer {
     z-index: 1030;
 }
 
-.popup {
+.ol-popup {
     position: absolute;
     background-color: white;
-    padding: 10px;
-    border: 1px solid #ccc;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #cccccc;
     bottom: 12px;
     left: -50px;
     min-width: 280px;
-    border-radius: 6px;
     display: none;
 }
 
-.popup:after,
-.popup:before {
+.ol-popup:after,
+.ol-popup:before {
     top: 100%;
     border: solid transparent;
     content: " ";
@@ -58,19 +59,27 @@ footer {
     pointer-events: none;
 }
 
-.popup:after {
+.ol-popup:after {
     border-top-color: white;
     border-width: 10px;
     left: 48px;
     margin-left: -10px;
 }
 
-#popup-closer {
+.ol-popup:before {
+    border-top-color: #cccccc;
+    border-width: 11px;
+    left: 48px;
+    margin-left: -11px;
+}
+
+.ol-popup-closer {
+    text-decoration: none;
     position: absolute;
     top: 2px;
     right: 8px;
 }
 
-#popup-content {
-    margin: 10px;
+.ol-popup-closer:after {
+    content: "✖";
 }
