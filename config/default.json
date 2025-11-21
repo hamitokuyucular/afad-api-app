@@ -1,0 +1,8 @@
+{
+    "afad": {
+        "baseURL": "https://deprem.afad.gov.tr/apiv2/event/filter"
+    },
+    "server": {
+        "port": 5000
+    }
+}
